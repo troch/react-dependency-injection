@@ -1,0 +1,4 @@
+modules
+test
+.*
+*.md

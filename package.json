@@ -1,0 +1,31 @@
+{
+  "name": "react-dependencies",
+  "version": "1.0.0",
+  "description": "Straight forward dependency injection in React",
+  "main": "lib/index.js",
+  "repository": "git@github.com:troch/react-dependencies.git",
+  "author": "Thomas Roch <thomas.c.roch@gmail.com>",
+  "scripts": {
+    "build": "babel modules --out-dir lib",
+    "test": "mocha --compilers js:babel-core/register test/index.js",
+    "prepublish": "npm run build && npm test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "object-assign": "~4.1.1",
+    "proptypes": "~1.1.0",
+    "react-is-class": "~1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "~6.25.0",
+    "babel-preset-es2015": "~6.24.1",
+    "babel-preset-react": "~6.24.1",
+    "chai": "~4.0.2",
+    "enzyme": "~2.8.2",
+    "jsdom": "~11.0.0",
+    "mocha": "~3.4.2",
+    "react": "~15.6.1",
+    "react-dom": "~15.6.1",
+    "react-test-renderer": "~15.6.1"
+  }
+}
