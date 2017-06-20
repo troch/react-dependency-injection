@@ -11,7 +11,7 @@ global.document = window.document;
 global.window = window;
 global.navigator = window.navigator;
 
-describe('react-dependencies', () => {
+describe('react-dependency-injection', () => {
     class Component extends React.Component {
         render() {
             return (

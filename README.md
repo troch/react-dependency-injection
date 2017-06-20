@@ -1,4 +1,4 @@
-# react-dependencies
+# react-dependency-injection
 
 Straight forward dependency injection for React. It uses React context to _encapsulate_ dependencies, and those dependencies can be injected to components via props at any node of your component tree.
 
@@ -9,9 +9,9 @@ Relying on context is fine for static data: see [How to safely use React context
 ### Install
 
 ```
-yarn add react-dependencies
+yarn add react-dependency-injection
 ## or
-## npm install react-dependencies
+## npm install react-dependency-injection
 ```
 
 ### Example
@@ -30,7 +30,7 @@ export default function render() {
 ```
 
 ```js
-import { setDependencies } from 'react-dependencies'
+import { setDependencies } from 'react-dependency-injection'
 
 function App(props) {
     return (
@@ -51,7 +51,7 @@ export default setDependencies((props) => ({
 Then, as long as a dependency was provided, you can use it in any component:
 
 ```js
-import { inject } from 'react-dependencies'
+import { inject } from 'react-dependency-injection'
 
 function DateTime({ formatters, date, format }) {
     return (

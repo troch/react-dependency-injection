@@ -1,9 +1,9 @@
 {
-  "name": "react-dependencies",
+  "name": "react-dependency-injection",
   "version": "1.0.0",
   "description": "Straight forward dependency injection in React",
   "main": "lib/index.js",
-  "repository": "git@github.com:troch/react-dependencies.git",
+  "repository": "git@github.com:troch/react-dependency-injection.git",
   "author": "Thomas Roch <thomas.c.roch@gmail.com>",
   "scripts": {
     "build": "babel modules --out-dir lib",

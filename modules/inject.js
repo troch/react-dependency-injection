@@ -14,7 +14,7 @@ export default function inject(...args) {
         : args;
 
     if (!dependencyNames.length) {
-        console.error('[react-dependencies][inject] No dependency names supplied');
+        console.error('[react-dependency-injection][inject] No dependency names supplied');
     }
 
     const options = hasOptions
@@ -31,7 +31,16 @@ export default function inject(...args) {
                 const dependencies = context[options.contextName];
 
                 this.pickedDependencies = dependencyNames.reduce(
-                    (deps, name) => assign(deps, {[ name ]: dependencies[name] }),
+                    (deps, name) => {
+                        const dep = dependencies[name];
+
+                        if (!dep) {
+                            console.error(`[react-dependency-injection][inject] No dependency named '${name}' was found`);
+                            return deps;
+                        }
+
+                        return assign(deps, {[ name ]: dependencies[name] });
+                    },
                     {}
                 );
             }
