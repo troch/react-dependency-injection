@@ -1,5 +1,8 @@
 # react-dependency-injection
 
+[![Build Status](https://travis-ci.org/troch/react-dependency-injection.svg?branch=master)](https://travis-ci.org/troch/react-dependency-injection)
+[![npm version](https://badge.fury.io/js/react-dependency-injection.svg)](http://badge.fury.io/js/react-dependency-injection)
+
 Straight forward dependency injection for React. It uses React context to _encapsulate_ dependencies, and those dependencies can be injected to components via props at any node of your component tree.
 
 This is a useful and well known pattern for larger applications, that I have used extensively for the last two years. It is especially needed for universal applications where _services_ and app-wide dependencies can't be singletons you import and consume in your components: in that case the use of context avoid having to pass dependencies from root to leaves.
@@ -29,6 +32,8 @@ export default function render() {
 }
 ```
 
+In your `App` component, you simply map props to dependencies you later want to inject:
+
 ```js
 import { setDependencies } from 'react-dependency-injection'
 
@@ -53,15 +58,18 @@ Then, as long as a dependency was provided, you can use it in any component:
 ```js
 import { inject } from 'react-dependency-injection'
 
-function DateTime({ formatters, date, format }) {
+function ArticleDateTime({ formatters, messages, date, format }) {
     return (
-        <time>
-            { formatters.formatDateTime(date, format) }
-        </time>
+        <div>
+            { messages.get('article.dateCreated') }
+            <time>
+                { formatters.formatDateTime(date, format) }
+            </time>
+        </div>
     );
 }
 
-export default inject('formatters')(DateTime);
+export default inject('formatters', 'messages')(DateTime);
 ```
 
 ### API
