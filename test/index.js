@@ -1,7 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import { expect } from 'chai';
 import { JSDOM } from 'jsdom';
+import Adapter from 'enzyme-adapter-react-16';
 
 import { setDependencies, inject } from '../modules';
 
@@ -10,6 +11,8 @@ const { window } = new JSDOM('<!doctype html><html><body></body></html>');
 global.document = window.document;
 global.window = window;
 global.navigator = window.navigator;
+
+configure({ adapter: new Adapter() })
 
 describe('react-dependency-injection', () => {
     class Component extends React.Component {
